@@ -1,6 +1,9 @@
 package com.example.splitwisenotificationsender.model
 
-data class PushNotification(
-    val data: NotificationData,
-    val fcmToken: String
+import com.google.gson.annotations.SerializedName
+
+data class PushNotification (
+
+    @SerializedName("message" ) var message : Message?
+
 )

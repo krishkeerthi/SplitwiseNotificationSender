@@ -1,7 +1,7 @@
 package com.example.splitwisenotificationsender.api
 
+import com.example.splitwisenotificationsender.Constants.Companion.ACCESS_TOKEN
 import com.example.splitwisenotificationsender.Constants.Companion.CONTENT_TYPE
-import com.example.splitwisenotificationsender.Constants.Companion.SERVER_KEY
 import com.example.splitwisenotificationsender.model.PushNotification
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -11,8 +11,8 @@ import retrofit2.http.POST
 
 interface NotificationAPI {
 
-    @Headers("Authorization: key=$SERVER_KEY","Content-Type:$CONTENT_TYPE")
-    @POST("fcm/send")
+    @Headers("Authorization:Bearer $ACCESS_TOKEN")
+    @POST("/messages:send")
     suspend fun postNotification(
         @Body notification: PushNotification
     ) : Response<ResponseBody>
