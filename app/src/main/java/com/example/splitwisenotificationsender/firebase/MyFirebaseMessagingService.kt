@@ -8,7 +8,7 @@ import com.google.firebase.messaging.RemoteMessage
 class MyFirebaseMessagingService: FirebaseMessagingService(){
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
-
+        Log.d(TAG, "onMessageReceived: ${message.data}")
     }
 
     override fun onNewToken(token: String) {
